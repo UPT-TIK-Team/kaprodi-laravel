@@ -24,3 +24,4 @@ Route::get('/logout', [AuthController::class, 'logout']);
 // Admin endpoint
 Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
 Route::get('/admin/index_data', [AdminController::class, 'index_data']);
+Route::get('/admin/data_pemilih', [AdminController::class, 'data_pemilih']);

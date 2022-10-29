@@ -1,10 +1,4 @@
-@extends('components.layout')
-
-@section('title', 'Login Admin')
-
-@section('body')
-
-<body class="hold-transition login-page">
+<x-body class="login-page" :title="'Halaman Login'">
   <div class="login-box">
     <div class="text-center">
       <img src={{ asset('/img/unsika-logo.png') }} alt="" class="img-responsive">
@@ -38,5 +32,4 @@
       </form>
     </div>
   </div>
-</body>
-@endsection
+</x-body>

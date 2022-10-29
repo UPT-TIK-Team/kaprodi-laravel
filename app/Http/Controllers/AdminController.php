@@ -15,4 +15,9 @@ class AdminController extends Controller
   {
     dd($request);
   }
+
+  public function data_pemilih()
+  {
+    return view('admin.data_pemilih');
+  }
 }

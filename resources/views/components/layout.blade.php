@@ -30,4 +30,6 @@
 
 @yield('body')
 
+@stack('scripts')
+
 </html>
