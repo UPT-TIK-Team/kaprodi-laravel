@@ -26,3 +26,4 @@ Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
 Route::get('/admin/index_data', [AdminController::class, 'indexData'])->middleware('auth');
 Route::get('/admin/data_pemilih', [AdminController::class, 'dataPemilih'])->middleware('auth');
 Route::post('/admin/import_data', [AdminController::class, 'importData']);
+Route::delete('/admin/data_pemilih', [AdminController::class, 'deleteDataPemilih']);

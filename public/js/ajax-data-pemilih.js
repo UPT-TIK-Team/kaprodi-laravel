@@ -20,8 +20,7 @@ $(document).ready(function () {
             } else {
                 var data = new FormData();
                 data.append("file", $("#file")[0].files[0]);
-                data.append("type", "insert");
-                $("#loading").show();
+                $("#loading-manual").show();
                 $.ajax({
                     headers: {
                         "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
@@ -42,11 +41,11 @@ $(document).ready(function () {
                         }
                     },
                     success: () => {
-                        $("#loading").hide();
+                        $("#loading-manual").hide();
                         window.location.reload();
                     },
                     error: function (xhr) {
-                        $("#loading").hide();
+                        $("#loading-manual").hide();
                         alert("ERROR : " + xhr.responseText);
                     },
                 });
@@ -118,13 +117,14 @@ $(document).ready(function () {
     $("#load").hide();
     $("#btn-hapusData").click(function () {
         var data = new FormData();
-        data.append("type", "delete");
-
         $("#load").show();
 
         $.ajax({
-            url: "pemilih/action",
-            type: "POST",
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+            url: `${baseURL}/admin/data_pemilih`,
+            type: "DELETE",
             data: data,
             processData: false,
             contentType: false,
@@ -134,13 +134,13 @@ $(document).ready(function () {
                     e.overrideMimeType("application/json;charset=UTF-8");
                 }
             },
-            success: function (response) {
+            success: function () {
                 $("#load").hide();
                 $("#modal-hapus").modal("hide");
                 window.location.reload();
                 swal("Good job!", "Data berhasil dihapus", "success");
             },
-            error: function (xhr, ajaxOptions, thrownError) {
+            error: function (xhr) {
                 alert("ERROR : " + xhr.responseText);
             },
         });

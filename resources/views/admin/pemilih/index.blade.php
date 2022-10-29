@@ -7,9 +7,7 @@
 
 <x-body :title="'Halaman Data Pemilih'">
   <section class="content-header">
-    <h1>
-      Data Dosen Pemilih
-    </h1>
+    <h1>Data Dosen Pemilih</h1>
     <ol class="breadcrumb">
       <li><a href="/admin"><i class="fa fa-users"></i> Home</a></li>
       <li>Data Dosen Pemilih</li>
@@ -34,11 +32,7 @@
         </button>
       </div>
       <div class="box-body table-responsive" id="view-data">
-        {{--
-        <?php
-        $data['dataPemilih'] = $this->Pemilih_model->data_pemilih();
-        $this->load->view('admin/pemilih/tabel-pemilih', $data);
-        ?> --}}
+        @include('admin.pemilih.table', ['dataPemilih'=>$dataPemilih])
       </div>
     </div>
 
@@ -48,8 +42,7 @@
           <div class="modal-header">
             <h4 class="modal-title">Konfirmasi</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            {{-- <img src="<?= base_url() ?>assets/img/loading.gif" alt="" id="loading-manual" style="height: 45px;">
-            --}}
+            <img src="{{asset('/img/loading.gif')}}" alt="" id="loading-manual" style="height: 45px;">
           </div>
           <div class="modal-body">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -74,8 +67,7 @@
           <div class="modal-header">
             <h4 class="modal-title">Konfirmasi</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            {{-- <img src="<?= base_url() ?>assets/img/loading.gif" alt="" id="loading-manual" style="height: 45px;">
-            --}}
+            <img src="{{asset('/img/loading.gif')}}" alt="" id="loading-manual" style="height: 45px;">
           </div>
           <div class="modal-body">
             <div class="row">
@@ -130,7 +122,7 @@
           </div>
           <div class="modal-body">
             <div id="konfirmasi">Apakah anda yakin ingin menghapus semua data ini?</div>
-            {{-- <img src="<?= base_url() ?>assets/img/loading.gif" alt="" id="load" style="height: 45px;"> --}}
+            <img src="{{asset('/img/loading.gif')}}" alt="" id="load" style="height: 45px;">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger btn-flat" id="btn-hapusData">Ya</button>
