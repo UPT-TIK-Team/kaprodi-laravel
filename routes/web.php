@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login/admin', [AuthController::class, 'loginAdmin'])->name('loginAdmin')->middleware('guest');
 Route::get('/login/user', [AuthController::class, 'loginUser'])->name('loginUser')->middleware('guest');
 Route::post('/login/authenticate', [AuthController::class, 'authenticate']);
-Route::get('/logout', [AuthController::class, 'logout']);
+Route::post('/logout', [AuthController::class, 'logout']);
 
 // Admin endpoint
 Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
-Route::get('/admin/index_data', [AdminController::class, 'indexData']);
-Route::get('/admin/data_pemilih', [AdminController::class, 'dataPemilih']);
+Route::get('/admin/index_data', [AdminController::class, 'indexData'])->middleware('auth');
+Route::get('/admin/data_pemilih', [AdminController::class, 'dataPemilih'])->middleware('auth');
 Route::post('/admin/import_data', [AdminController::class, 'importData']);
