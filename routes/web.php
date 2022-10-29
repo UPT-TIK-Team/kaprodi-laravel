@@ -16,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Auth endpoint
-Route::get('/login/admin', [AuthController::class, 'login_admin'])->name('login_admin')->middleware('guest');
-Route::get('/login/user', [AuthController::class, 'login_user'])->name('login_user')->middleware('guest');
+Route::get('/login/admin', [AuthController::class, 'loginAdmin'])->name('loginAdmin')->middleware('guest');
+Route::get('/login/user', [AuthController::class, 'loginUser'])->name('loginUser')->middleware('guest');
 Route::post('/login/authenticate', [AuthController::class, 'authenticate']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 // Admin endpoint
 Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
-Route::get('/admin/index_data', [AdminController::class, 'index_data']);
-Route::get('/admin/data_pemilih', [AdminController::class, 'data_pemilih']);
+Route::get('/admin/index_data', [AdminController::class, 'indexData']);
+Route::get('/admin/data_pemilih', [AdminController::class, 'dataPemilih']);
+Route::post('/admin/import_data', [AdminController::class, 'importData']);

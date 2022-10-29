@@ -16,12 +16,12 @@ class AuthController extends Controller
         return redirect('/login/admin');
     }
 
-    public function login_admin()
+    public function loginAdmin()
     {
         return view('admin.login');
     }
 
-    public function login_user()
+    public function loginUser()
     {
         return view('admin.login');
     }

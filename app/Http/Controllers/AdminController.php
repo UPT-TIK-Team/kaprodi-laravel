@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\PemilihImports;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -11,13 +13,19 @@ class AdminController extends Controller
     return view('admin.index', ['coba' => 1]);
   }
 
-  public function index_data(Request $request)
+  public function indexData(Request $request)
   {
     dd($request);
   }
 
-  public function data_pemilih()
+  public function dataPemilih()
   {
     return view('admin.data_pemilih');
+  }
+
+  public function importData(Request $request)
+  {
+    Excel::import(new PemilihImports, $request->file('file')->store('temp'));
+    return back();
   }
 }
