@@ -17,7 +17,7 @@
           <i class="fa fa-dashboard"></i>
           <span>Dashboard</span></a>
       </li>
-      <li class="{{request()->is('data_pengguna')?'active':''}}">
+      <li class="{{request()->is('admin/data_pengguna')?'active':''}}">
         <a href="/admin/data_pengguna" style="text-decoration: none;">
           <i class="fa fa-users"></i>
           <span>Data Pengguna</span>

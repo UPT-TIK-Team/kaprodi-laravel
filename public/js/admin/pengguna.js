@@ -19,20 +19,17 @@ $(document).ready(function () {
       swal("Oops...", "Form tidak boleh ada yang kosong!", "error");
     } else {
       var data = new FormData();
-      data.append("nama", $("#nama").val());
+      data.append("name", $("#nama").val());
       data.append("username", $("#username").val());
       data.append("email", $("#email").val());
       data.append("role", $("#role").val());
-      data.append("type", "insert");
 
       $("#loading-manual").show();
 
       $.ajax({
-        url: "action",
+        url: `${baseURL}/admin/data_pengguna`,
         type: "POST",
         data,
-        processData: false,
-        contentType: false,
         dataType: "json",
         beforeSend: function (e) {
           if (e && e.overrideMimeType) {
@@ -42,10 +39,10 @@ $(document).ready(function () {
         success: function (response) {
           $("#loading-manual").hide();
 
-          if (response.status == "sukses") {
-            $("#view-data").html(response.html);
-            swal("Good job!", "Data berhasil disimpan", "success");
-            $("#modal-form").modal("hide");
+          if (response.status === "success") {
+            swal("Good job!", "Data berhasil disimpan", "success").then(() =>
+              window.location.reload()
+            );
           } else {
             swal("Oops...", "Ada yang error!", "error");
           }

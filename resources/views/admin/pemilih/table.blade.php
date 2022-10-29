@@ -1,11 +1,3 @@
-@push('scripts')
-<script>
-  $(function() {
-    $('#tabel').dataTable();
-  });
-</script>
-@endpush
-
 <table id="tabel" class="table table-striped table-bordered table-hover">
   <thead>
     <tr>

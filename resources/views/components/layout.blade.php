@@ -27,6 +27,19 @@
   <script src="{{ asset('/js/jquery.easeScroll.js') }}"></script>
   <script src="{{ asset('/js/ajax.js') }}"></script>
   <script src="{{ asset('/js/script.js') }}"></script>
+  <script>
+    const baseURL="{{url('')}}"
+
+    // Convet all table with "table" id to datatable
+    $(function() {
+      $('#tabel').dataTable();
+    });
+
+    // Ajax Setup
+    $.ajaxSetup({
+      headers: {"X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")},
+    });
+  </script>
 </head>
 
 @yield('body')

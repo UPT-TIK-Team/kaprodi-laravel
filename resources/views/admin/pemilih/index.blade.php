@@ -1,8 +1,5 @@
 @push('scripts')
-<script>
-  const baseURL="{{url('')}}"
-</script>
-<script src="{{asset('/js/ajax-data-pemilih.js')}}"></script>
+<script src="{{asset('/js/admin/pemilih.js')}}"></script>
 @endpush
 
 <x-body :title="'Halaman Data Pemilih'">

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Imports\PemilihImports;
 use App\Models\Pemilih;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
@@ -46,6 +48,26 @@ class AdminController extends Controller
   public function deleteDataPemilih()
   {
     Pemilih::truncate();
+    return response()->json([
+      'status' => 'success'
+    ]);
+  }
+
+  public function dataPengguna()
+  {
+    return view('admin.pengguna.index', ['dataPengguna' => User::all(['name', 'username', 'email', 'role'])]);
+  }
+
+  public function storeDataPengguna(Request $request)
+  {
+    $formFields = $request->validate([
+      'name' => ['required', 'min:3'],
+      'username' => ['required', 'min:3'],
+      'email' => ['required', 'email'],
+      'role' => ['required']
+    ]);
+    $formFields['password'] = bcrypt('unsika_2022');
+    User::create($formFields);
     return response()->json([
       'status' => 'success'
     ]);
