@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Auth endpoint
+Route::get('/', [AuthController::class, 'loginUser'])->name('loginUser')->middleware('guest');
 Route::get('/login/admin', [AuthController::class, 'loginAdmin'])->name('loginAdmin')->middleware('guest');
-Route::get('/login/user', [AuthController::class, 'loginUser'])->name('loginUser')->middleware('guest');
 Route::post('/login/authenticate', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout']);
 

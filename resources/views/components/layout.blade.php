@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{{ asset('/css/ionicons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/AdminLTE.min.css') }}">
   <link rel="stylesheet" href="{{ asset('/css/skin-blue.min.css') }}">
+  @stack('customCSS')
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/r-2.3.0/datatables.min.css" />
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>

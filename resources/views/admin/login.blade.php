@@ -9,9 +9,12 @@
         @csrf
 
         <div class="mb-3">
-          <input type="text" class="form-control" placeholder="Username" name="username" value="{{old('username')}}">
+          <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="Username"
+            name="username" value="{{old('username')}}">
           @error('username')
-          <span class="text-danger">{{$message}}</span>
+          <div class="invalid-feedback">
+            {{$message}}
+          </div>
           @enderror
         </div>
 
